@@ -1,0 +1,21 @@
+FROM python:3.10-slim
+
+WORKDIR /app
+
+# 安装依赖
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# 复制代码
+COPY . .
+
+# 创建上传目录和生成目录
+RUN mkdir -p uploads generated models
+
+# 环境变量
+ENV PYTHONPATH=/app
+ENV APP_ENV=production
+ENV DATABASE_URL=sqlite:///./stylepianodiff.db
+
+# 启动命令
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]

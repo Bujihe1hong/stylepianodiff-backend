@@ -1,0 +1,12 @@
+fastapi==0.111.0
+uvicorn[standard]==0.30.0
+sqlalchemy==2.0.31
+# pyodbc==5.1.0  # SQL Server 驱动，使用 SQLite 时无需安装
+pydantic==2.7.4
+pydantic-settings==2.3.4
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+python-multipart==0.0.9
+aiofiles==23.2.1
+pretty_midi
+mido

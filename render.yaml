@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: stylepianodiff-api
+    runtime: python
+    region: singapore
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port 10000
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.0
+      - key: DATABASE_URL
+        value: sqlite:///./stylepianodiff.db
+      - key: FRONTEND_URL
+        value: https://your-vercel-domain.vercel.app
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: false
