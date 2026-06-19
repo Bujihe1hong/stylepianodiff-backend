@@ -49,6 +49,13 @@ def health_check() -> dict:
     return {"code": 200, "message": "服务运行正常", "data": {"status": "ok", "version": settings.APP_VERSION}}
 
 
+# Railway 默认健康检查路径
+@app.get("/health", response_model=dict)
+def railway_health_check() -> dict:
+    """Railway 平台健康检查"""
+    return {"status": "ok"}
+
+
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run("app.main:app", host="0.0.0.0", port=8000, reload=settings.DEBUG)
