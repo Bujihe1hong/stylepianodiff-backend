@@ -26,10 +26,10 @@ class Settings(BaseSettings):
     GENERATED_DIR: Path = Path(__file__).resolve().parent.parent.parent / "generated"
     MAX_UPLOAD_SIZE: int = 10 * 1024 * 1024  # 10MB
 
-    # 模型路径配置
-    MODEL_PROJECT_PATH: Path = Path(r"D:\pycharm\stylepianodiff")
-    CHECKPOINT_PATH: Path = Path(r"D:\pycharm\stylepianodiff\outputs\diffusion\stage3_best.pt")
-    MODEL_CONFIG_PATH: Path = Path(r"D:\pycharm\stylepianodiff\configs\train_diffusion.yaml")
+    # 模型路径配置（Linux 容器路径）
+    MODEL_PROJECT_PATH: Path = Path("/app/models")
+    CHECKPOINT_PATH: Path = Path("/app/models/stage3_best.pt")
+    MODEL_CONFIG_PATH: Path = Path("/app/models/config.yaml")
     MODEL_CHECKPOINT_DIR: Path = Path(__file__).resolve().parent.parent.parent / "models"
 
     # 生成任务配置
