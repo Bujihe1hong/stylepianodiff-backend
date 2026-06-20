@@ -15,7 +15,10 @@ app = FastAPI(
 # CORS 配置
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # 生产环境应限制为前端域名
+    allow_origins=[
+        "https://stylepianodiff-web.vercel.app/",  # 生产环境
+        "http://localhost:5173",  # 本地开发
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -53,7 +56,7 @@ def health_check() -> dict:
 @app.get("/health", response_model=dict)
 def railway_health_check() -> dict:
     """Railway 平台健康检查"""
-    return {"status": "ok"}
+    return {"status": "ok", "timestamp": "2024-06-19"}
 
 
 if __name__ == "__main__":
